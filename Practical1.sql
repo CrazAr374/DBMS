@@ -1,0 +1,102 @@
+-- USE DATABASE
+USE info;
+
+-- SHOW DATABASES
+SHOW DATABASES;
+
+-- CREATE TABLE
+CREATE TABLE info (
+    roll_no INT,
+    fullname VARCHAR(30),
+    class VARCHAR(20),
+    marks FLOAT,
+    dob DATE
+);
+
+-- INSERT VALUES INTO TABLE
+INSERT INTO info (roll_no, fullname, class, marks, dob) VALUES
+(1, 'Alice Smith', 'BE', 98.0, '1996-07-12'),
+(2, 'Bob Johnson', 'TE', 98.1, '1997-07-12'),
+(3, 'Charlie Brown', 'TE', 98.2, '1998-05-11'),
+(4, 'David Wilson', 'SE', 80.0, '2017-01-12'),
+(5, 'Eva Green', 'SE', 90.0, '2018-01-12');
+
+-- DISPLAY TABLE
+SELECT * FROM info;
+
+-- DISPLAY PARTICULAR COLUMNS
+SELECT roll_no, marks FROM info;
+
+-- DELETE PARTICULAR ROW
+DELETE FROM info WHERE fullname = 'Bob Johnson';
+
+-- DISPLAY TABLE
+SELECT * FROM info;
+
+-- CREATE NEW DATABASE
+CREATE DATABASE new1;
+
+-- SHOW DATABASES
+SHOW DATABASES;
+
+-- DROP DATABASE
+DROP DATABASE new1;
+
+-- USE EXISTING DATABASE
+USE info;
+
+-- DISPLAY TABLE
+SELECT * FROM info;
+
+-- UPDATE ROW OF THE TABLE
+UPDATE info SET class = 'SE Comp' WHERE roll_no = 1;
+
+-- DISPLAY TABLE
+SELECT * FROM info;
+
+-- ADD COLUMN INTO THE TABLE
+ALTER TABLE info ADD sirname VARCHAR(20);
+
+-- DISPLAY TABLE
+SELECT * FROM info;
+
+-- MODIFY DATATYPE OF PARTICULAR COLUMN
+ALTER TABLE info MODIFY roll_no FLOAT;
+
+-- DISPLAY TABLE
+SELECT * FROM info;
+
+-- DESCRIBE TABLE
+DESC info;
+
+-- DELETE PARTICULAR COLUMN
+ALTER TABLE info DROP sirname;
+
+-- DISPLAY TABLE
+SELECT * FROM info;
+
+-- ADD COLUMN AGAIN
+ALTER TABLE info ADD sirname VARCHAR(20);
+
+-- DISPLAY TABLE
+SELECT * FROM info;
+
+-- RENAME THE COLUMN
+ALTER TABLE info CHANGE fullname name VARCHAR(20);
+
+-- DISPLAY TABLE
+SELECT * FROM info;
+
+-- INSERT NEW VALUES INTO TABLE
+INSERT INTO info (roll_no, fullname, class, marks, dob) VALUES
+(101, 'Frank Martin', 'SE', 80, '2017-01-12'),
+(102, 'Grace Lee', 'SE', 90, '2018-01-12');
+
+-- DISPLAY TABLE
+SELECT * FROM info;
+
+-- CREATING VIEW
+CREATE VIEW te AS SELECT roll_no, fullname, class FROM info;
+
+-- DISPLAY VIEW
+SELECT * FROM te;
